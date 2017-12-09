@@ -34,5 +34,27 @@ public class NewsTitleFragment extends Fragment implements AdapterView.OnItemCli
         newsTitleListView.setOnItemClickListener ( this );
         return view;
     }
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState){
+        super.onActivityCreated ( savedInstanceState );
+        if (getActivity ().findViewById ( R.id.news_content_layout ) != null){
+            isTwoPane = true;
+        }else {
+            isTwoPane = false;
+        }
+    }
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+        News news = newsList.get ( position );
+        if (isTwoPane){
+            NewsContentFragment newsContentFragment = (NewsContentFragment) getFragmentManager ().findFragmentById ( R.id.news_content_fragment );
+            newsContentFragment.refresh ( news.getTitle (), news.getContent () );
+        }else {
+            NewsContentActivity.actionStart ( getActivity (), news.getTitle (), news.getContent () );
+        }
+    }
+    private List<News> getNews(){
+
+    }
 
 }
