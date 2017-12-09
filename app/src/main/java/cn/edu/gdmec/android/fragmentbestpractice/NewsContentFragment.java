@@ -18,7 +18,7 @@ public class NewsContentFragment extends Fragment{
         view = inflater.inflate ( R.layout.news_content_frag, container, false );
         return view;
     }
-    private void refresh(String newsTitle, String newsContent){
+    void refresh(String newsTitle, String newsContent){
         View visibilityLayout = view.findViewById ( R.id.visibility_layout );
         visibilityLayout.setVisibility ( View.VISIBLE );
         TextView newsTitleText = (TextView) view.findViewById ( R.id.news_title );
