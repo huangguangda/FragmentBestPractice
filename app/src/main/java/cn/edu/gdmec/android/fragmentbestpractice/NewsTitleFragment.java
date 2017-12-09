@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -54,7 +55,16 @@ public class NewsTitleFragment extends Fragment implements AdapterView.OnItemCli
         }
     }
     private List<News> getNews(){
-
+        List<News> newsList = new ArrayList<News> (  );
+        News news1 = new News ();
+        news1.setTitle ( "Succeed in College as a Learning Disabled Student" );
+        news1.setContent ( "College freshmen will soon learn to live with a roommate, adjust to a new social scene and survive less-than-stellar dining hall food.");
+        newsList.add ( news1 );
+        News news2 = new News ();
+        news2.setTitle ( "Google Android exec poached by China's Xiaomi" );
+        news2.setContent ( "China's Xiaomi has poached a key Google executive maker" );
+        newsList.add ( news2 );
+        return newsList;
     }
 
 }
